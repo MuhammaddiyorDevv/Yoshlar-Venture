@@ -1,0 +1,59 @@
+@keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .slider-track {
+            display: flex;
+            animation: slide 30s linear infinite;
+            width: calc(200% + 2rem);
+        }
+        .slider-track.reverse {
+            animation-direction: reverse;
+        }
+        .logo {
+            flex-shrink: 0;
+            width: 120px;
+            height: 60px;
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+/* Mobile menu animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        
+        /* Hide/show icons */
+        .menu-icon, .close-icon {
+            transition: opacity 0.2s ease-in-out;
+        }
+        .menu-icon.hidden, .close-icon.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Smooth scroll behavior */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
