@@ -19,7 +19,9 @@
     <!-- Container -->
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[84px]">
       <!-- Navigation -->
-      <nav class="bg-white shadow-sm">
+      <nav
+        class="bg-white shadow-sm border py-[15] px-[38px] rounded-tl-3xl rounded-br-3xl mt-[14px]"
+      >
         <div class="w-full mx-auto">
           <div class="flex justify-between items-center h-16">
             <!-- Logo -->
@@ -132,13 +134,77 @@
 
             <!-- Language Selector & Mobile Menu -->
             <div class="flex items-center space-x-2">
-              <select
-                class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none font-inter-tight"
-              >
-                <option value="uz">O'zb</option>
-                <option value="ru">Рус</option>
-                <option value="en">Eng</option>
-              </select>
+              <div class="relative inline-block">
+                <button
+                  id="languageButton"
+                  class="rounded px-2 py-1 text-sm focus:outline-none font-inter-tight bg-white flex items-center space-x-2 min-w-[80px] justify-between hover:border-gray-400 transition"
+                >
+                  <div class="flex items-center space-x-2">
+                    <img
+                      id="selectedFlag"
+                      src="/assets/images/FlagUzb.svg"
+                      alt=""
+                      class="w-4 h-3"
+                    />
+                    <span id="selectedText">O'zb</span>
+                  </div>
+                  <svg
+                    class="w-3 h-3 transition-transform"
+                    id="dropdownArrow"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                <div
+                  id="languageDropdown"
+                  class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10 hidden"
+                >
+                  <div class="py-1">
+                    <button
+                      class="w-full px-2 py-1 text-left hover:bg-gray-100 flex items-center space-x-2 text-sm font-inter-tight"
+                      onclick="selectLanguage('uz', '/assets/images/FlagUzb.svg', 'O\\'zb')"
+                    >
+                      <img
+                        src="/assets/images/FlagUzb.svg"
+                        alt=""
+                        class="w-4 h-3"
+                      />
+                      <span>O'zb</span>
+                    </button>
+                    <button
+                      class="w-full px-2 py-1 text-left hover:bg-gray-100 flex items-center space-x-2 text-sm font-inter-tight"
+                      onclick="selectLanguage('ru', '/assets/images/FlagRus.svg', 'Рус')"
+                    >
+                      <img
+                        src="/assets/images/Flag_of_Russia.svg.webp"
+                        alt=""
+                        class="w-4 h-3"
+                      />
+                      <span>Рус</span>
+                    </button>
+                    <button
+                      class="w-full px-2 py-1 text-left hover:bg-gray-100 flex items-center space-x-2 text-sm font-inter-tight"
+                      onclick="selectLanguage('en', '/assets/images/FlagEng.svg', 'Eng')"
+                    >
+                      <img
+                        src="/assets/images/english_flag.png"
+                        alt=""
+                        class="w-4 h-3"
+                      />
+                      <span>Eng</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
               <!-- Mobile menu button -->
               <button
                 id="mobile-menu-button"
@@ -233,7 +299,7 @@
 
       <!-- Hero Section -->
       <section
-        class="bg-white text-center pt-16 sm:pt-24 lg:pt-36 pb-24 sm:pb-32 lg:pb-56 px-4"
+        class="bg-white text-center pt-16 sm:pt-24 lg:pt-36 pb-24 sm:pb-32 lg:pb-56 px-4 hero-background"
       >
         <div class="container mx-auto flex flex-col items-center space-y-6">
           <!-- Tagline -->
@@ -254,13 +320,13 @@
           <!-- Button -->
           <a
             href="#apply"
-            class="inline-flex items-center justify-center bg-gradient-to-r from-brand-orange-start to-brand-orange-end text-white font-semibold rounded-2xl px-6 sm:px-8 py-3 sm:py-4 gap-2 sm:gap-4 shadow-lg hover:opacity-95 transition font-inter-tight"
+            class="inline-flex items-center justify-center bg-gradient-to-r from-brand-orange-start to-brand-orange-end text-white text-[16px] sm:text-xl font-semibold rounded-2xl pl-8 pr-1.5 py-1.5 gap-2 sm:gap-4 shadow-lg hover:opacity-95 transition font-inter-tight"
           >
             Ariza yuborish
             <img
               src="/assets/images/Frame 1000005242.svg"
               alt="arrow icon"
-              class="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+              class="w-[38px] h-19 sm:w-[50px] sm:h-[52px] lg:w-10 lg:h-10"
             />
           </a>
         </div>
@@ -272,10 +338,10 @@
       >
         <!-- Card 1 -->
         <div
-          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-col p-4 space-y-3"
+          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-row sm:flex-col p-4 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
         >
           <div
-            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center"
+            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center flex-shrink-0"
           >
             <img
               src="/assets/images/wallet-check.svg"
@@ -290,10 +356,10 @@
 
         <!-- Card 2 -->
         <div
-          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-col p-4 space-y-3"
+          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-row sm:flex-col p-4 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
         >
           <div
-            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center"
+            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center flex-shrink-0"
           >
             <img
               src="/assets/images/money-send.svg"
@@ -308,10 +374,10 @@
 
         <!-- Card 3 -->
         <div
-          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-col p-4 space-y-3"
+          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-row sm:flex-col p-4 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
         >
           <div
-            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center"
+            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center flex-shrink-0"
           >
             <img
               src="/assets/images/device-message.svg"
@@ -326,10 +392,10 @@
 
         <!-- Card 4 -->
         <div
-          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-col p-4 space-y-3"
+          class="w-full h-[150px] rounded-[24px] border border-white bg-brand-yellow flex flex-row sm:flex-col p-4 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
         >
           <div
-            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center"
+            class="w-[60px] h-[60px] bg-white rounded-[20px] flex items-center justify-center flex-shrink-0"
           >
             <img src="/assets/images/wallet.svg" alt="icon" class="w-8 h-8" />
           </div>
@@ -343,16 +409,47 @@
       <section
         class="relative rounded-3xl overflow-hidden mx-auto w-full px-6 sm:px-12 lg:px-[80px] py-8 sm:py-12 lg:py-[60px] mb-16"
       >
-        <!-- Background with Image -->
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-brand-orange-start to-brand-orange-end opacity-100"
-          style="
-            background-image: url('/assets/images/BgImg.png');
+        <!-- Mobile uchun alohida CSS -->
+        <style>
+          .mobile-background {
+            background-image: url("/assets/images/BgImg.png");
             background-size: 100% 66.67%;
             background-position: top center;
             background-repeat: repeat-y;
             background-color: #f28e46;
-          "
+          }
+
+          /* Mobile uchun alohida background */
+          @media (max-width: 640px) {
+            .mobile-background {
+              background-size: cover;
+              background-position: center center;
+              background-repeat: no-repeat;
+            }
+          }
+
+          /* Tablet uchun */
+          @media (min-width: 641px) and (max-width: 1024px) {
+            .mobile-background {
+              background-size: 100% 70%;
+              background-position: top center;
+              background-repeat: repeat-y;
+            }
+          }
+
+          /* Desktop uchun (asl holat) */
+          @media (min-width: 1025px) {
+            .mobile-background {
+              background-size: 100% 66.67%;
+              background-position: top center;
+              background-repeat: repeat-y;
+            }
+          }
+        </style>
+
+        <!-- Background with Image -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-brand-orange-start to-brand-orange-end opacity-100 mobile-background"
         ></div>
 
         <!-- Content -->
@@ -363,9 +460,9 @@
           >
             <!-- Card 1 -->
             <div
-              class="bg-white rounded-xl shadow-md flex flex-col p-5 space-y-3"
+              class="bg-white rounded-xl shadow-md flex flex-row sm:flex-col p-5 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
             >
-              <div class="bg-gray-100 rounded-lg p-3 w-fit">
+              <div class="bg-gray-100 rounded-[24px] p-3 w-fit flex-shrink-0">
                 <img
                   src="/assets/images/no-suitcase 1.svg"
                   alt="tayyor emasman"
@@ -376,11 +473,12 @@
                 Xali tayyor emasman
               </p>
             </div>
+
             <!-- Card 2 -->
             <div
-              class="bg-white rounded-xl shadow-md flex flex-col p-5 space-y-3"
+              class="bg-white rounded-xl shadow-md flex flex-row sm:flex-col p-5 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start"
             >
-              <div class="bg-gray-100 rounded-lg p-3 w-fit">
+              <div class="bg-gray-100 rounded-[24px] p-3 w-fit flex-shrink-0">
                 <img
                   src="/assets/images/alone 1.svg"
                   alt="yolg'izman"
@@ -391,11 +489,12 @@
                 Yolg'izman
               </p>
             </div>
+
             <!-- Card 3 -->
             <div
-              class="bg-white rounded-xl shadow-md flex flex-col p-5 space-y-3 sm:col-span-2 lg:col-span-1"
+              class="bg-white rounded-xl shadow-md flex flex-row sm:flex-col p-5 space-x-3 sm:space-x-0 sm:space-y-3 items-center sm:items-start sm:col-span-2 lg:col-span-1"
             >
-              <div class="bg-gray-100 rounded-lg p-3 w-fit">
+              <div class="bg-gray-100 rounded-[24px] p-3 w-fit flex-shrink-0">
                 <img
                   src="/assets/images/no-money.svg"
                   alt="pul yo'q"
@@ -418,6 +517,7 @@
               </p>
             </div>
           </div>
+
           <button
             class="bg-white text-[#F28E46] font-semibold rounded-[24px] px-6 py-3 flex items-center space-x-3 shadow-lg font-inter-tight hover:shadow-xl transition-shadow"
           >
@@ -447,23 +547,15 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             <!-- Card 1 -->
             <div
-              class="bg-white rounded-3xl shadow-md p-6 sm:p-8 flex flex-col items-center text-center"
-              style="
-                background-image: url('/assets/images/BgImg.png');
-                background-size: 100% 100%;
-                background-position: top center;
-                background-repeat: repeat-y;
-              "
+              class="bg-white rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center mobile-card-bg"
             >
               <img
                 src="/assets/images/yoshlar-ishlari-logo.svg.svg"
                 alt="Yoshlar ishlari agentligi"
                 class="w-20 sm:w-24 h-auto mb-4 sm:mb-6"
               />
-              <!-- <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1 font-inter-tight">YOSHLAR ISHLARI</h3> -->
-              <!-- <p class="text-sm text-gray-500 uppercase mb-4 sm:mb-6 font-inter-tight">Agentligi</p> -->
               <button
-                class="bg-white text-[#F28E46] font-semibold rounded-[24px] border border-orange-200 px-6 py-2 shadow hover:bg-orange-50 transition font-inter-tight"
+                class="bg-white text-[#F28E46] font-semibold rounded-[24px] border border-orange-200 px-6 py-2 hover:bg-orange-50 transition font-inter-tight custom-shadow"
               >
                 Ko'proq o'qish
               </button>
@@ -471,23 +563,15 @@
 
             <!-- Card 2 -->
             <div
-              class="bg-white rounded-3xl shadow-md p-6 sm:p-8 flex flex-col items-center text-center"
-              style="
-                background-image: url('/assets/images/BgImg.png');
-                background-size: 100% 100%;
-                background-position: top center;
-                background-repeat: repeat-y;
-              "
+              class="bg-white rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center mobile-card-bg"
             >
               <img
                 src="/assets/images/jamgarmasi-logo.svg.svg"
                 alt="Jamg'armasi"
                 class="w-20 sm:w-24 h-auto mb-4 sm:mb-6"
               />
-              <!-- <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1 font-inter-tight">Jamg'armasi</h3> -->
-              <!-- <p class="text-sm text-gray-500 uppercase mb-4 sm:mb-6 font-inter-tight">Yoshlar tadbirkorligini rivojlantirish</p> -->
               <button
-                class="bg-white text-[#F28E46] font-semibold rounded-[24px] border border-orange-200 px-6 py-2 shadow hover:bg-orange-50 transition font-inter-tight"
+                class="bg-white text-[#F28E46] font-semibold rounded-[24px] border border-orange-200 px-6 py-2 hover:bg-orange-50 transition font-inter-tight custom-shadow"
               >
                 Ko'proq o'qish
               </button>
@@ -514,17 +598,18 @@
           >
             <div class="flex items-start justify-between mb-4">
               <div class="flex items-center space-x-3">
-                <span
-                  class="text-2xl font-bold text-brand-orange-start font-inter-tight"
+                <span class="text-2xl font-bold text-[#F28E46] font-inter-tight"
                   >01</span
                 >
+                <!-- Vertikal chiziq -->
+                <div class="w-px h-[52px] bg-[#F28E46]"></div>
                 <h3 class="text-xl font-semibold text-black font-inter-tight">
                   SheStars
                 </h3>
               </div>
               <img src="/assets/images/Stars.svg" alt="" class="w-6 h-6" />
             </div>
-            <div class="w-full h-px bg-brand-orange-start mb-4"></div>
+            <div class="w-full h-px bg-[#F28E46] mb-4"></div>
             <p
               class="text-gray-600 text-sm mb-6 font-inter-tight leading-relaxed"
             >
@@ -532,7 +617,7 @@
               bilan o'rtoqlashadi.
             </p>
             <button
-              class="inline-flex items-center text-brand-orange-start border border-brand-orange-start rounded-full px-4 py-2 text-sm font-medium hover:bg-brand-orange-start hover:text-white transition font-inter-tight"
+              class="inline-flex items-center text-[#F28E46] border border-[#F28E46] rounded-[12px] px-4 py-2 text-sm font-medium hover:bg-brand-orange-start hover:text-white transition font-inter-tight"
             >
               BARCHASINI O'QISH
               <img src="/assets/images/Lamp.svg" alt="" class="w-6 h-6 ml-2" />
@@ -545,17 +630,17 @@
           >
             <div class="flex items-start justify-between mb-4">
               <div class="flex items-center space-x-3">
-                <span
-                  class="text-2xl font-bold text-brand-orange-start font-inter-tight"
+                <span class="text-2xl font-bold text-[#F28E46] font-inter-tight"
                   >02</span
                 >
+                <div class="w-px h-[52px] bg-[#F28E46]"></div>
                 <h3 class="text-xl font-semibold text-black font-inter-tight">
                   Startup Arena
                 </h3>
               </div>
               <img src="/assets/images/Arena.svg" alt="" class="w-6 h-6" />
             </div>
-            <div class="w-full h-px bg-brand-orange-start mb-4"></div>
+            <div class="w-full h-px bg-[#F28E46] mb-4"></div>
             <p
               class="text-gray-600 text-sm mb-6 font-inter-tight leading-relaxed"
             >
@@ -563,7 +648,7 @@
               oldida taqdim etadi.
             </p>
             <button
-              class="inline-flex items-center text-brand-orange-start border border-brand-orange-start rounded-full px-4 py-2 text-sm font-medium hover:bg-brand-orange-start hover:text-white transition font-inter-tight"
+              class="inline-flex items-center text-[#F28E46] border border-[#F28E46] rounded-[12px] px-4 py-2 text-sm font-medium hover:bg-[#F28E46] hover:text-white transition font-inter-tight"
             >
               BARCHASINI O'QISH
               <img src="/assets/images/Lamp.svg" alt="" class="w-6 h-6 ml-2" />
@@ -576,17 +661,17 @@
           >
             <div class="flex items-start justify-between mb-4">
               <div class="flex items-center space-x-3">
-                <span
-                  class="text-2xl font-bold text-brand-orange-start font-inter-tight"
+                <span class="text-2xl font-bold text-[#F28E46] font-inter-tight"
                   >03</span
                 >
+                <div class="w-px h-[52px] bg-[#F28E46]"></div>
                 <h3 class="text-xl font-semibold text-black font-inter-tight">
                   StartupTalks
                 </h3>
               </div>
               <img src="/assets/images/Talks.svg" alt="" class="w-6 h-6" />
             </div>
-            <div class="w-full h-px bg-brand-orange-start mb-4"></div>
+            <div class="w-full h-px bg-[#F28E46] mb-4"></div>
             <p
               class="text-gray-600 text-sm mb-6 font-inter-tight leading-relaxed"
             >
@@ -594,27 +679,26 @@
               oldida taqdim etadi.
             </p>
             <button
-              class="inline-flex items-center text-brand-orange-start border border-brand-orange-start rounded-full px-4 py-2 text-sm font-medium hover:bg-brand-orange-start hover:text-white transition font-inter-tight"
+              class="inline-flex items-center text-[#F28E46] border border-[#F28E46] rounded-[12px] px-4 py-2 text-sm font-medium hover:bg-[#F28E46] hover:text-white transition font-inter-tight"
             >
               BARCHASINI O'QISH
               <img src="/assets/images/Lamp.svg" alt="" class="w-6 h-6 ml-2" />
             </button>
           </div>
 
-          <!-- Bottom Logo - Mobile -->
+          <!-- Bottom Logo - Mobile (FAQAT BU QISM O'ZGARTIRILDI) -->
           <div class="flex justify-center pt-8">
             <div
-              class="w-full h- bg-[url('/assets/images/RoundedBg.png')] bg-contain bg-center bg-no-repeat flex items-center justify-center"
+              class="w-full min-h-[300px] bg-[url('/assets/images/RoundedBg.png')] bg-center bg-no-repeat bg-contain flex items-center justify-center"
             >
               <img
-                class="w-16 h-16"
-                src="/assets//images/LogoYoshlar.png"
+                class="w-[187px] h-[185px]"
+                src="/assets/images/LogoYoshlar.png"
                 alt="Logo"
               />
             </div>
           </div>
         </div>
-
         <!-- Desktop Layout -->
         <div class="hidden lg:block relative h-full">
           <!-- Center Logo -->
